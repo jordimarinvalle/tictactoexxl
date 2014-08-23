@@ -28,18 +28,20 @@ class Setup(object):
         return tictactoexxl.get_version()
 
     @staticmethod
-    def long_description(filename='README.rst'):
+    def long_description(filenames=['README.rst']):
         try:
-            return open(filename).read()
+            descriptions = []
+            for filename in filenames:
+                descriptions.append(open(filename).read())
+            return "\n\n".join(descriptions)
         except:
             return ''
-
 
 setup(
     name='tictactoexxl',
     version='%s' % (Setup.version()),
     description='A tic-tac-toe game with xxl fun',
-    long_description='%s' % (Setup.long_description('README.rst')),
+    long_description='%s' % (Setup.long_description(['README.rst'])),
     author='Jordi Marín Valle',
     author_email='py.jordi@gmail.com',
     url='https://github.com/jordimarinvalle/tictactoexxl',
