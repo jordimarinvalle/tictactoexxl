@@ -45,7 +45,6 @@ class Game(object):
         Raises:
         :GameSetupWinningError()
         '''
-
         if board is None:
             board = Board(BOARD_DIM_X_DEFAULT, BOARD_DIM_Y_DEFAULT)
 
@@ -88,8 +87,8 @@ class Game(object):
         return strgrid
 
     @staticmethod
-    def is_winning_n_in_a_row_ok(
-            num_players, board_dim_x, board_dim_y, n_in_a_row):
+    def is_winning_n_in_a_row_ok(num_players, board_dim_x, board_dim_y,
+                                 n_in_a_row):
         '''
         Return true if game setup params are ok for a fair game.
 
@@ -102,8 +101,9 @@ class Game(object):
 
         Returns: boolean
         '''
-        if board_dim_x * board_dim_y > (num_players * n_in_a_row) - 1:
-            return True
+        if n_in_a_row <= board_dim_x or n_in_a_row <= board_dim_y:
+            if num_players * (n_in_a_row - 1) < board_dim_x * board_dim_y:
+                return True
         return False
 
     def get_player(self, i_round):

@@ -31,6 +31,48 @@ class TestTicTacToeXXLGame(object):
         self.game = Game(board=self.board,
                          players=[self.player1, self.player2])
 
+    def test_game_winning_n_in_a_row_ok_1(self):
+        assert Game.is_winning_n_in_a_row_ok(num_players=2,
+                                             board_dim_x=3,
+                                             board_dim_y=3,
+                                             n_in_a_row=3) is True
+
+    def test_game_winning_n_in_a_row_ok_2(self):
+        assert Game.is_winning_n_in_a_row_ok(num_players=4,
+                                             board_dim_x=3,
+                                             board_dim_y=3,
+                                             n_in_a_row=3) is True
+
+    def test_game_winning_n_in_a_row_ok_3(self):
+        assert Game.is_winning_n_in_a_row_ok(num_players=3,
+                                             board_dim_x=2,
+                                             board_dim_y=4,
+                                             n_in_a_row=3) is True
+
+    def test_game_winning_n_in_a_row_ko_1(self):
+        assert Game.is_winning_n_in_a_row_ok(num_players=2,
+                                             board_dim_x=5,
+                                             board_dim_y=5,
+                                             n_in_a_row=6) is False
+
+    def test_game_winning_n_in_a_row_ko_2(self):
+        assert Game.is_winning_n_in_a_row_ok(num_players=5,
+                                             board_dim_x=3,
+                                             board_dim_y=3,
+                                             n_in_a_row=3) is False
+
+    def test_game_winning_n_in_a_row_ko_3(self):
+        assert Game.is_winning_n_in_a_row_ok(num_players=5,
+                                             board_dim_x=3,
+                                             board_dim_y=3,
+                                             n_in_a_row=4) is False
+
+    def test_game_winning_n_in_a_row_ko_4(self):
+        assert Game.is_winning_n_in_a_row_ok(num_players=3,
+                                             board_dim_x=2,
+                                             board_dim_y=5,
+                                             n_in_a_row=5) is False
+
     def test_game_players(self):
         assert len(self.game.players) is 2
 
