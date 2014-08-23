@@ -12,13 +12,17 @@ from tictactoexxl.game import GameError
 from tictactoexxl.player import Player
 
 from tictactoexxl.board import Board
+from tictactoexxl.board import BoardError
 from tictactoexxl.board import BoardPosition
 from tictactoexxl.board import BoardPositionError
 
 
 def play(dimx=None, dimy=None, win=None, players=[]):
 
-    game = Game(Board(dimx, dimy), win, players)
+    try:
+        game = Game(Board(dimx, dimy), win, players)
+    except (GameError, BoardError) as e:
+        Typewitter.exit(str(e))
 
     for i in range(0, game.board.get_num_slots()):
 

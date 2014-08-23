@@ -32,6 +32,9 @@ class Board(object):
     DIRECTION_DOWN_LEFT = "down_left"
     DIRECTION_DOWN_RIGHT = "down_right"
 
+    DIM_X_MIN = 2
+    DIM_Y_MIN = 2
+
     def __init__(self, dim_x=None, dim_y=None):
         '''
         Create a new tic-tac-toe board with a Grid abstraction to deal with
@@ -41,6 +44,9 @@ class Board(object):
         :dim_x -- integer (default None), dimension of the board (width)
         :dim_y -- integer (default None), dimension of the board (height)
 
+        Raises:
+        :BoardError()
+
         Notes:
         :slot -- a slot is where a cordinate x gets with a cordinate y,
                  AKA board position bucket.
@@ -48,6 +54,10 @@ class Board(object):
                       vertical, horitzontal and diagonal.
 
         '''
+        if (dim_x is not None and dim_x < Board.DIM_X_MIN) or (
+                dim_y is not None and dim_y < Board.DIM_Y_MIN):
+            raise BoardError()
+
         if dim_x is None:
             dim_x = BOARD_DIM_X_DEFAULT
 
@@ -453,6 +463,11 @@ class BoardPosition(object):
         Returns: BoardPosition
         '''
         return board_position.get_positions()[direction]()
+
+
+class BoardError(TicTacToeXXLError):
+
+    MESSAGE = "Invalid board"
 
 
 class BoardPositionError(TicTacToeXXLError):

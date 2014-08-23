@@ -61,6 +61,10 @@ class Typewitter(object):
     def input(message, log_type=None):
         return Py2Py3.input(Typewitter.message(message, log_type))
 
+    @staticmethod
+    def exit(message):
+        sys.exit(Typewitter.message(message, Typewitter.ERROR))
+
 
 class Message(object):
 

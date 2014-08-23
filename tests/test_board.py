@@ -3,6 +3,7 @@
 import pytest
 
 from tictactoexxl.board import Board
+from tictactoexxl.board import BoardError
 from tictactoexxl.board import BoardPosition
 from tictactoexxl.board import BoardPositionError
 
@@ -55,6 +56,13 @@ class TestTicTacToeXXLBoard(object):
         board_position = BoardPosition(self.POSITION_X_OK, self.POSITION_Y_OK)
         self.board.set_slot_value(board_position, self.SLOT_VALUE_DUMMY)
         assert self.board.is_slot_available(board_position) is False
+
+    def test_board_invalid_dimensions(self):
+        try:
+            board = Board(dim_x=0, dim_y=0)
+        except BoardError:
+            board = None
+        assert board is None
 
 
 class TestTicTacToeXXLBoardPosition(object):
