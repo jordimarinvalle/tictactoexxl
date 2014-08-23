@@ -16,7 +16,7 @@ class Argument(object):
     @staticmethod
     def get_input_args():
         arg_parser = argparse.ArgumentParser(
-            description="Description of Tic-Tac-Toe-XXL")
+            description="Description of TicTacToeXXL")
 
         arg_parser.add_argument(
             '-w', '--win', type=int, required=False,
@@ -36,7 +36,7 @@ class Argument(object):
         arg_parser.add_argument(
             '-p', '--players', type=int, required=False,
             default=GAME_NUM_PLAYERS_DEFAULT,
-            help="number of players ")
+            help="number of players")
 
         return vars(arg_parser.parse_args())
 
@@ -70,7 +70,7 @@ class Message(object):
 
     @staticmethod
     def welcome():
-        return "WELCOME TO TIC-TAC-TOE-XXL (a simple tic-tac-toe game " \
+        return "WELCOME TO TIC-TAC-TOE XXL (a simple tic-tac-toe game " \
             "with XXL fun)"
 
     @staticmethod
