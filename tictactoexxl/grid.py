@@ -189,6 +189,7 @@ class GridPosition(object):
                 return True
         return False
 
+
 class GridPositionError(TicTacToeXXLError):
 
     MESSAGE = "Invalid grid position"
