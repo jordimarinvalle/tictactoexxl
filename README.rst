@@ -27,6 +27,18 @@ For a pip installation, just ``pip install tictactoexxl``
     $ pip install tictactoexxl
 
 
+Play
+----
+Once installed, just type ``tictactoexxl-play.py`` but it will no provide you xxl fun. Check tictactoexxl help ``tictactoexxl-play.py --help`` to customice your tic-tac-toc game, e.g.:
+
+.. code:: bash
+
+    tictactoexxl-play.py -p3 -x5 -y5 -w4
+
+
+If a game constraint is not provided, the corresponding one of standard tic-tac-toe game will be set. ``tictactoexxl-play.py -x5 -y5 -w4`` will set a default param `-p2` that represents that the game will be set for two players.
+
+
 Support
 -------
 Python 2.7 and 3.4 versions have been tested with success.
