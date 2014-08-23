@@ -1,6 +1,10 @@
 TicTacToeXXL
 ============
 
+.. image:: https://api.travis-ci.org/jordimarinvalle/tictactoexxl.png
+        :target: https://secure.travis-ci.org/jordimarinvalle/tictactoexxl
+
+
 TicTacToeXXL is a tic-tac-toe game with xxl fun. The rules are the same, but there are not fixed elements -- you can create a tic-tac-toe game with **multiple players** on a **n*m grid** and the first player who **strikes 'x' movements in a row** (vertical/horizontal/diagonal) wins the game. Simple as playing a tic-tac-toe game but with xxl fun.
 
 
